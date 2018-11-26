@@ -1,44 +1,136 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Meteorite - Explore meteorite strikes
 
-## Available Scripts
+[![restaurantreviews last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/jdmedlock/meteorite)
+<br/>
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/jdmedlock/meteorite/)
 
-In the project directory, you can run:
+![Screenshot](https://github.com/jdmedlock/meteorite/blob/development/docs/meteorite_screenshot.png)
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [Overview](#overview)
+* [Usage](#usage)
+* [Dependencies](#dependencies)
+* [Application Structure](#application-structure)
+* [FAQ](#frequently-asked-questions)
+* [Change Log](#change-log)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [License](#license)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Overview
 
-### `npm test`
+This app provides its users with the ability to explore meteorite strikes
+across the globe by searching the [Meteorite Landing dataset](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh) on the Nasa
+Open Data Portal.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+### UI Features
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+TBD
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Starting & Building the App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To start the application in development mode simply run `npm run start` or
+`yarn start` from the command line. The application will automatically open a
+new tab in your browser with the url `localhost:3000`.
 
-### `npm run eject`
+To start the application in production mode run `npm run serve` or `yarn serve`
+from the command line. In production mode the app will automatically create a
+new browser tab with the url `localhost:5000`. The main difference between
+production and development modes is a Service Worker runs in productin mode to
+support offline execution.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The production version of the app is build by running `npm run publish`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Environment Variables
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Environment variables that control the operation of the app are defined in the
+`.env` file in the application root. These variables and their usage are shown
+in the following table. It's important to keep in mind that when these settings
+in the `.env` file are changed `npm run build` must be run before they will
+take effect.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Environment variables maintained in the `.env` file are made available to the
+application code via `process.env.<variable-name>`. For example, the
+neighborhood's latitude is accessed in the code by referencing
+`process.env.REACT_APP_LAT`.
 
-## Learn More
+Remember that even though this keeps secure tokens like client id's and secrets
+out of application code it does not make them secure.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Environment Variable    | Description | Example Setting |
+|:------------------------|:------------|:----------------|
+| REACT_APP_LAT           | Latitude of the neighborhood | REACT_APP_LAT=28.4812299 |
+| REACT_APP_LNG           | Longitude of the neighborhood | REACT_APP_LNG=-80.8883962 |
+| REACT_APP_MAPS_URL      | Google Maps URL with API key | REACT_APP_MAPS_URL="https://maps.googleapis.com/maps/api/js?libraries=places&key=\<YOUR-API-KEY\>" |
+| REACT_APP_SEARCH_RADIUS | Radius, in meters, searches are constrained to | REACT_APP_SEARCH_RADIUS=16000 |
+| REACT_APP_FS_CLIENT_ID  | Foursquare API client id | REACT_APP_FS_CLIENT_ID=ADADEAFDF4ADFADFAA5ADADFAFAD |
+| REACT_APP_FS_CLIENT_SECRET | Foursquaer API client secret | REACT_APP_FS_CLIENT_SECRET=ADADEAFDF4ADFADFAA5ADADFAFAD |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dependencies
+
+### Libraries
+
+This app has the following dependencies
+
+| Module/Library | Environment | Description | Related Files |
+|:---------------|:------------|:------------|:--------------|
+| autoprefixer   | Development | Parses CSS and adds vendor prefixes to CSS rules | N/a |
+| css-loader     | Development | Resolves CSS @import and url() paths | N/a |
+| extract-loader | Development | Extracts the CSS into a .css file | N/a |
+| file-loader    | Development | Serves the .css file as a public URL | N/a |
+| lodash.debounce | Runtime    | _debounce text input | N/a  |
+| node-sass-chokidar | Development | CSS complier | N/a |
+| NPM            | Development | Package manager | package.json |
+| npm-run-all    | Runtime     | Run multiple scripts | N/a |
+| postcss-loader | Deveopment  | Loader for Webpack used in conjunction with autoprefixer | N/a |
+| prop-types     | Runtime     | Type checking for props | N/a |
+| react          | Runtime     | UI Library  | N/a           |
+| react-dom      | Runtime     | DOM renderer for React | N/a |
+| react-router   | Runtime     | Declarative routing for React | N/a |
+| react-scripts  | Runtime     | scripts and configuration used by Create React App | N/a |
+| rmwc           | Runtime     | [React Material Web Components](https://jamesmfriedman.github.io/rmwc//) | N/a |
+| sass-loader    | Development | Loads a Sass file and compiles it to CSS | N/a |
+
+In addition to these libraries, which the app explicitly depends on,
+Create React App includes other libraries such as Babel and Webpack. For more
+information about Create React App and it's dependencies consult its
+[documentation](https://github.com/facebook/create-react-app).
+
+### External Dependencies
+
+In addition to libraries Neighborhood Maps also depends on webservices to
+provide with details about places. The [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
+used for basic
+searching and to populate information windows on the map with basic information.
+
+## Application Structure
+
+The component structure of the neighborhoodmap application is shown in the following
+diagram.
+
+![neighborhoodmap Component Structure](https://github.com/jdmedlock/neighborhoodmap/blob/development/docs/meteorite_component_structure.png)
+
+## Frequently Asked Questions
+
+TBD
+
+## Change Log
+
+For more information see [Change Log](https://github.com/jdmedlock/meteorite/blob/development/docs/CHANGELOG.md)
+
+## Contributing
+
+See [Contributing](https://github.com/jdmedlock/meteorite/blob/development/docs/CONTRIBUTING.md)
+and our [Collaborator Guide](https://github.com/jdmedlock/meteorite/blob/development/docs/COLLABORATOR_GUIDE.md).
+
+## Authors
+
+Developers on this project can be found on the [Contributors](https://github.com/jdmedlock/meteorite/graphs/contributors) page of this repo.
+
+## License
+
+[MIT](https://tldrlegal.com/license/mit-license)
+
