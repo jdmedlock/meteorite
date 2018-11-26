@@ -1,8 +1,11 @@
 # Meteorite - Explore meteorite strikes
+[Meteorite App](https://jdmedlock.github.io/meteorite/)
+<br/>
 
-[![restaurantreviews last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/jdmedlock/meteorite)
+[![meteorite last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/jdmedlock/meteorite)
 <br/>
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/jdmedlock/meteorite/)
+
 
 ![Screenshot](https://github.com/jdmedlock/meteorite/blob/development/docs/meteorite_screenshot.png)
 
@@ -83,7 +86,6 @@ This app has the following dependencies
 | file-loader    | Development | Serves the .css file as a public URL | N/a |
 | lodash.debounce | Runtime    | _debounce text input | N/a  |
 | node-sass-chokidar | Development | CSS complier | N/a |
-| NPM            | Development | Package manager | package.json |
 | npm-run-all    | Runtime     | Run multiple scripts | N/a |
 | postcss-loader | Deveopment  | Loader for Webpack used in conjunction with autoprefixer | N/a |
 | prop-types     | Runtime     | Type checking for props | N/a |

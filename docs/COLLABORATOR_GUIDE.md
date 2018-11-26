@@ -5,7 +5,7 @@ responsibilities. This guide will help you understand your role and the
 responsibilities that come with being a collaborator.
 
 1. __Adhere to and help enforce the Code of Conduct.__ It is expected that you
-have read the [code of conduct](https://github.com/jdmedlock/neighborhoodmap/blob/development/docs/CODE_OF_CONDUCT.md)
+have read the [code of conduct](https://github.com/jdmedlock/meteorite/blob/development/docs/CODE_OF_CONDUCT.md)
 and that you agree to live by it. This community should be friendly and
 welcoming.
 

@@ -52,7 +52,7 @@ example, URL's to Gist's.
 
 Please update the tests to reflect your code changes. Pull requests will not
 be accepted if they are failing
-on [Travis CI](https://travis-ci.org/jdmedlock/neighborhoodmap).
+on [Travis CI](https://travis-ci.org/jdmedlock/meteorite).
 
 ### Documentation
 
@@ -65,7 +65,7 @@ the API and the documentation.
 
 #### Git Branches
 
-![Neighborhood Git Workflow](https://github.com/jdmedlock/neighborhoodmap/blob/development/docs/Git%20-%20Team%20Workflow.png)
+![Neighborhood Git Workflow](https://github.com/jdmedlock/meteorite/blob/development/docs/Git%20-%20Team%20Workflow.png)
 
 - `master`: Only updated from PR's from the `development` branch for release.
 This branch always reflects the current production release.
