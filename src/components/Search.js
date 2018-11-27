@@ -8,13 +8,14 @@ const styles = theme => ({
   container: {
     display: 'flex',
     backgroundColor: theme.palette.common.white,
+    margin: "1rem",
   },
 });
 
 const Search = (props) => {
   const { classes } = props;
   return (
-    <div className={classes.input}>
+    <div className={classes.container}>
       <SearchTerms />
       <SearchButton />
     </div>
