@@ -36,12 +36,11 @@ const styles = theme => ({
 });
 
 const MeteoriteTable = (props) => {
-  console.log('props: ', props);
   const { classes, meteoriteStrikes } = props;
 
   return (
     <Paper className={classes.root}>
-      <Table className={classes.table}>
+      <Table className={classes.table} padding="dense">
         <TableHead>
           <TableRow>
             <CustomTableCell>Name</CustomTableCell>
@@ -53,7 +52,6 @@ const MeteoriteTable = (props) => {
             <CustomTableCell>Year</CustomTableCell>
             <CustomTableCell>Latitude</CustomTableCell>
             <CustomTableCell>Longitude</CustomTableCell>
-            <CustomTableCell>Geo Location</CustomTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
