@@ -20,12 +20,12 @@ const styles = {
 };
 
 const BottomBar = (props) => {
-  const { title, classes } = props;
+  const { title, href, classes } = props;
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" color="inherit" className={classes.grow}>
-          <a href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh" target="_blank">
+          <a href={href} target="_blank" rel="noopener noreferrer">
           {title}
           </a>
         </Typography>
@@ -36,6 +36,7 @@ const BottomBar = (props) => {
 
 BottomBar.propTypes = {
   title: PropTypes.string,
+  href: PropTypes.string,
   classes: PropTypes.object.isRequired,
 };
 

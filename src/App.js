@@ -49,7 +49,8 @@ class App extends Component {
         </section>
 
         <footer className="App-footer">
-          <BottomBar title="Data courtesy Nasa Open Data Portal"/>
+          <BottomBar title="Data courtesy Nasa Open Data Portal"
+            href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh" />
         </footer>
       </div>
     );
