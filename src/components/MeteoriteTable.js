@@ -12,7 +12,7 @@ import Meteorite from './Meteorite';
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: "#FFB564",
-    color: theme.palette.common.white,
+    color: "#3B3939",
     fontSize: 18,
     fontWeight: 600,
   },

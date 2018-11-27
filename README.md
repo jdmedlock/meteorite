@@ -35,11 +35,11 @@ TBD
 
 ### Starting & Building the App
 
-To start the application in development mode simply run `npm run start` or
-`yarn start` from the command line. The application will automatically open a
-new tab in your browser with the url `localhost:3000`.
+To start the application in development mode simply run `npm run start`from
+the command line. The application will automatically open a new tab in your
+browser with the url `localhost:3000`.
 
-To start the application in production mode run `npm run serve` or `yarn serve`
+To start the application in production mode run `npm run serve`
 from the command line. In production mode the app will automatically create a
 new browser tab with the url `localhost:5000`. The main difference between
 production and development modes is a Service Worker runs in productin mode to

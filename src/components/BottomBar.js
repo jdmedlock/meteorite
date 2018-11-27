@@ -25,7 +25,9 @@ const BottomBar = (props) => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" color="inherit" className={classes.grow}>
+          <a href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh" target="_blank">
           {title}
+          </a>
         </Typography>
       </Toolbar>
     </AppBar>
