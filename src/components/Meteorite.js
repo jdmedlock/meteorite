@@ -33,6 +33,7 @@ const styles = theme => ({
 const Meteorite = (props) => {
   const { strike, classes } = props;
   const mass = Number.parseFloat(strike.mass).toFixed(0);
+  const impactYear = (strike.year) != null ? strike.year.split('-')[0] : "undefined";
 
   return (
     <TableRow className={classes.row} key={strike.id}>
@@ -42,7 +43,7 @@ const Meteorite = (props) => {
       <CustomTableCell>{strike.recclass}</CustomTableCell>
       <CustomTableCell numeric>{mass}</CustomTableCell>
       <CustomTableCell>{strike.fall}</CustomTableCell>
-      <CustomTableCell numeric>{strike.year}</CustomTableCell>
+      <CustomTableCell numeric>{impactYear}</CustomTableCell>
       <CustomTableCell numeric>{strike.reclat}</CustomTableCell>
       <CustomTableCell numeric>{strike.reclong}</CustomTableCell>
     </TableRow>

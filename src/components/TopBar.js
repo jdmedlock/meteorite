@@ -9,13 +9,10 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
   root: {
     flexGrow: 1,
+    fontWeight: 800,
   },
   grow: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
   },
 };
 
@@ -24,7 +21,7 @@ const TopBar = (props) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" color="inherit" className={classes.grow}>
+        <Typography variant="h4" color="inherit" className={classes.grow}>
           {title}
         </Typography>
       </Toolbar>

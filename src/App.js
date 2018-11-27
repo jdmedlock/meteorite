@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
-import TopBar from './components/TopBar';
-import BottomBar from './components/BottomBar';
-import MeteoriteTable from './components/MeteoriteTable';
 import './App.css';
+import TopBar from './components/TopBar';
+import Search from './components/Search';
+import MeteoriteTable from './components/MeteoriteTable';
+import BottomBar from './components/BottomBar';
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +33,11 @@ class App extends Component {
           <TopBar title="Meteorite Explorer"/>
         </header>
 
-        <section className="App-section">
+        <section className="App-search">
+          <Search />
+        </section>
+
+        <section className="App-results">
           <BrowserRouter basename={ process.env.PUBLIC_URL }>
             <div>
               {this.state.isDataLoaded ?
