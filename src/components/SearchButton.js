@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   button: {
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: theme.palette.primary.light,
     fontWeight: 600,
     margin: theme.spacing.unit,
   },

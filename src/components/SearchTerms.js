@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import debounce from "lodash.debounce";
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 
@@ -13,22 +14,51 @@ const styles = theme => ({
     margin: theme.spacing.unit,  },
 });
 
-const Search = (props) => {
-  const { classes } = props;
-  return (
-    <Input
-      placeholder="Enter search terms"
-      className={classes.input}
-      variant="outlined"
-      inputProps={{
-        'aria-label': 'Description',
-      }}
-    />
-  );
-}
+class Search extends React.Component {
 
-Search.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
+    // SearchPage state
+    this.state = {
+      searchTerms: "",
+    };
+
+    // Bind 'this' to the event handlers so they'll have the proper context
+    this.handleChange = this.handleChange.bind(this);
+    this.emitChangeDebounce = debounce(this.queryName, 150);
+
+    this.classes = props.classes;
+  }
+
+
+  handleChange(event) {
+    // Add input entered by the user to the searchText element in
+    // our state. Keystrokes are debounced to prevend the queryLocation function
+    // from being called too many times in succession to reduce overhead.
+    this.emitChangeDebounce(event.target.value);
+  }
+
+  queryName(enteredText) {
+    this.setState({ searchTerms: enteredText });
+  }
+
+  render() {
+    return (
+      <Input
+        placeholder="Enter search terms"
+        className={this.classes.input}
+        variant="outlined"
+        inputProps={{
+          'aria-label': 'Description',
+        }}
+      />
+    );
+  }
+}
 
 export default withStyles(styles)(Search);
