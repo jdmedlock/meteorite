@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import MeteoriteRow from './MeteoriteRow';
+import Meteorite from './Meteorite';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -46,13 +46,20 @@ const MeteoriteTable = (props) => {
           <TableRow>
             <CustomTableCell>Name</CustomTableCell>
             <CustomTableCell numeric>Id</CustomTableCell>
-           </TableRow>
+            <CustomTableCell>Name Type</CustomTableCell>
+            <CustomTableCell>Rec Class</CustomTableCell>
+            <CustomTableCell numeric>Mass (g)</CustomTableCell>
+            <CustomTableCell>Fall</CustomTableCell>
+            <CustomTableCell>Year</CustomTableCell>
+            <CustomTableCell>Latitude</CustomTableCell>
+            <CustomTableCell>Longitude</CustomTableCell>
+            <CustomTableCell>Geo Location</CustomTableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {meteoriteStrikes.map(strike => {
             return (
-              <MeteoriteRow className={classes.row} key={strike.id} strike={strike}>
-              </MeteoriteRow>
+              <Meteorite className={classes.row} key={strike.id} strike={strike} />
             );
           })}
         </TableBody>

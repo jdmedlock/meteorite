@@ -30,19 +30,27 @@ const styles = theme => ({
   },
 });
 
-const MeteoriteRow = (props) => {
+const Meteorite = (props) => {
   const { strike, classes } = props;
 
   return (
-    <TableRow className={classes.strike} key={strike.id} >
+    <TableRow className={classes.row} key={strike.id}>
       <CustomTableCell component="th" scope="row">{strike.name}</CustomTableCell>
       <CustomTableCell numeric>{strike.id}</CustomTableCell>
+      <CustomTableCell>{strike.nametype}</CustomTableCell>
+      <CustomTableCell>{strike.recclass}</CustomTableCell>
+      <CustomTableCell numeric>{strike.mass}</CustomTableCell>
+      <CustomTableCell>{strike.fall}</CustomTableCell>
+      <CustomTableCell>{strike.year}</CustomTableCell>
+      <CustomTableCell>{strike.reclat}</CustomTableCell>
+      <CustomTableCell>{strike.reclong}</CustomTableCell>
     </TableRow>
   );
 }
 
-MeteoriteRow.propTypes = {
-  classes: PropTypes.object.isRequired,
+Meteorite.propTypes = {
+  strike: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(MeteoriteRow);
+export default withStyles(styles)(Meteorite);
