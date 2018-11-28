@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import './App.css';
 import TopBar from './components/TopBar';
@@ -15,8 +14,10 @@ class App extends Component {
     this.state = {
       meteoriteStrikes: {},
       isDataLoaded: false,
-      searchTerms: ''
+      searchTerms: '',
     };
+
+    this.searchHandler = this.searchHandler.bind(this);
   }
 
   async componentDidMount() {
@@ -28,12 +29,12 @@ class App extends Component {
   }
 
   saveSearchTerms(searchTerms) {
-    console.log('saveSearchTerms: searchTerms: ', searchTerms);
+    console.log('saveSearchTerms - searchTerms: ', searchTerms);
     this.setState({searchTerms: searchTerms});
   }
 
-  searchHandler(event) {
-    console.log('searchHandler triggered. event: ', event);
+  searchHandler() {
+    console.log('searchHandler triggered - searchTerms: ', this.state.searchTerms);
     // TODO: Add search logic
   }
 
@@ -45,19 +46,17 @@ class App extends Component {
         </header>
 
         <section className="App-search">
-          <Search saveSearchTerms={this.saveSearchTerms} 
+          <Search saveSearchTerms={this.saveSearchTerms}
             searchHandler={this.searchHandler} />
         </section>
 
         <section className="App-results">
-          <BrowserRouter basename={ process.env.PUBLIC_URL }>
-            <div>
-              {this.state.isDataLoaded ?
-                ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } /> )
-                : (' ')
-              }
-            </div>
-          </BrowserRouter>
+          <div>
+            {this.state.isDataLoaded ?
+              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } /> )
+              : (' ')
+            }
+          </div>
         </section>
 
         <footer className="App-footer">

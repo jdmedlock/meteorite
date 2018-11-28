@@ -12,20 +12,34 @@ const styles = theme => ({
   },
 });
 
-const Search = (props) => {
-  const { classes, saveSearchTerms, searchHandler } = props;
-  return (
-    <div className={classes.container} >
-      <SearchTerms saveSearchTerms={saveSearchTerms} />
-      <SearchButton clickHandler={searchHandler} />
-    </div>
-  );
-}
+class Search extends React.Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+    saveSearchTerms: PropTypes.func.isRequired,
+    searchHandler: PropTypes.func.isRequired,
+  };
 
-Search.propTypes = {
-  classes: PropTypes.object.isRequired,
-  saveSearchTerms: PropTypes.func.isRequired,
-  searchHandler: PropTypes.func.isRequired,
-};
+  constructor(props) {
+    super(props);
+
+    this.classes = props.classes;
+    this.saveSearchTerms = props.saveSearchTerms;
+    this.callerSearchHandler = props.searchHandler;
+    this.searchHandler = this.searchHandler.bind(this);
+  }
+
+  searchHandler(searchTerms) {
+    this.callerSearchHandler();
+  }
+
+  render() {
+    return (
+      <div className={this.classes.container} >
+        <SearchTerms saveSearchTerms={this.saveSearchTerms} />
+        <SearchButton clickHandler={this.searchHandler} />
+      </div>
+    );
+   }
+}
 
 export default withStyles(styles)(Search);
