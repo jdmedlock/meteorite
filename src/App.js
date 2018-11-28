@@ -14,7 +14,8 @@ class App extends Component {
     // App state
     this.state = {
       meteoriteStrikes: {},
-      isDataLoaded: false
+      isDataLoaded: false,
+      searchTerms: ''
     };
   }
 
@@ -26,6 +27,16 @@ class App extends Component {
     console.log('meteoriteStrikes json: ', this.state.meteoriteStrikes);
   }
 
+  saveSearchTerms(searchTerms) {
+    console.log('saveSearchTerms: searchTerms: ', searchTerms);
+    this.setState({searchTerms: searchTerms});
+  }
+
+  searchHandler(event) {
+    console.log('searchHandler triggered. event: ', event);
+    // TODO: Add search logic
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,7 +45,8 @@ class App extends Component {
         </header>
 
         <section className="App-search">
-          <Search />
+          <Search saveSearchTerms={this.saveSearchTerms} 
+            searchHandler={this.searchHandler} />
         </section>
 
         <section className="App-results">

@@ -15,9 +15,9 @@ const styles = theme => ({
 });
 
 const SearchButton = (props) => {
-  const { classes } = props;
+  const { classes, clickHandler } = props;
   return (
-    <Button variant="contained" className={classes.button}>
+    <Button variant="contained" className={classes.button} onClick={clickHandler} >
       Search
     </Button>
   );
@@ -25,6 +25,7 @@ const SearchButton = (props) => {
 
 SearchButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SearchButton);

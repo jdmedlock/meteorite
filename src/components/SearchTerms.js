@@ -18,6 +18,7 @@ class Search extends React.Component {
 
   static propTypes = {
     classes: PropTypes.object.isRequired,
+    saveSearchTerms: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -33,8 +34,8 @@ class Search extends React.Component {
     this.emitChangeDebounce = debounce(this.queryName, 150);
 
     this.classes = props.classes;
+    this.saveSearchTerms = props.saveSearchTerms;
   }
-
 
   handleChange(event) {
     // Add input entered by the user to the searchText element in
@@ -44,7 +45,9 @@ class Search extends React.Component {
   }
 
   queryName(enteredText) {
+    console.log('queryName - enteredText: ', enteredText);
     this.setState({ searchTerms: enteredText });
+    this.saveSearchTerms(enteredText);
   }
 
   render() {
@@ -53,6 +56,7 @@ class Search extends React.Component {
         placeholder="Enter search terms"
         className={this.classes.input}
         variant="outlined"
+        onChange={ this.handleChange }
         inputProps={{
           'aria-label': 'Description',
         }}

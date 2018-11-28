@@ -13,17 +13,19 @@ const styles = theme => ({
 });
 
 const Search = (props) => {
-  const { classes } = props;
+  const { classes, saveSearchTerms, searchHandler } = props;
   return (
-    <div className={classes.container}>
-      <SearchTerms />
-      <SearchButton />
+    <div className={classes.container} >
+      <SearchTerms saveSearchTerms={saveSearchTerms} />
+      <SearchButton clickHandler={searchHandler} />
     </div>
   );
 }
 
 Search.propTypes = {
   classes: PropTypes.object.isRequired,
+  saveSearchTerms: PropTypes.func.isRequired,
+  searchHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Search);
