@@ -10,14 +10,13 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    // App state
     this.state = {
       meteoriteStrikes: {},
       isDataLoaded: false,
       searchTerms: '',
     };
 
-    this.searchHandler = this.searchHandler.bind(this);
+    this.publishSearchTerms = this.publishSearchTerms.bind(this);
   }
 
   async componentDidMount() {
@@ -25,17 +24,11 @@ class App extends Component {
     const json = await response.json();
     this.setState({ meteoriteStrikes: json });
     this.setState({ isDataLoaded: true});
-    console.log('meteoriteStrikes json: ', this.state.meteoriteStrikes);
+    console.log('App.js - componentDidMount - meteoriteStrikes json: ', this.state.meteoriteStrikes);
   }
 
-  saveSearchTerms(searchTerms) {
-    console.log('saveSearchTerms - searchTerms: ', searchTerms);
-    this.setState({searchTerms: searchTerms});
-  }
-
-  searchHandler() {
-    console.log('searchHandler triggered - searchTerms: ', this.state.searchTerms);
-    // TODO: Add search logic
+  publishSearchTerms(searchTerms) {
+    this.setState({ searchTerms: searchTerms });
   }
 
   render() {
@@ -46,14 +39,14 @@ class App extends Component {
         </header>
 
         <section className="App-search">
-          <Search saveSearchTerms={this.saveSearchTerms}
-            searchHandler={this.searchHandler} />
+          <Search publishSearchTerms={this.publishSearchTerms} />
         </section>
 
         <section className="App-results">
           <div>
             {this.state.isDataLoaded ?
-              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } /> )
+              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } 
+                  searchTerms={ this.state.searchTerms } /> ) 
               : (' ')
             }
           </div>

@@ -45,7 +45,6 @@ class Search extends React.Component {
   }
 
   queryName(enteredText) {
-    console.log('queryName - enteredText: ', enteredText);
     this.setState({ searchTerms: enteredText });
     this.saveSearchTerms(enteredText);
   }

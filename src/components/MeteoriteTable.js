@@ -37,7 +37,7 @@ const styles = theme => ({
 });
 
 const MeteoriteTable = (props) => {
-  const { classes, meteoriteStrikes } = props;
+  const { classes, meteoriteStrikes, searchTerms } = props;
 
   return (
     <Paper className={classes.root}>
@@ -56,11 +56,16 @@ const MeteoriteTable = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {meteoriteStrikes.map(strike => {
-            return (
-              <Meteorite className={classes.row} key={strike.id} strike={strike} />
-            );
-          })}
+          {meteoriteStrikes
+            .filter(strike => {
+              return searchTerms === '' || 
+                     (strike.name).toLowerCase().includes(searchTerms.toLowerCase())
+            })
+            .map(strike => {
+              return (
+                <Meteorite className={classes.row} key={strike.id} strike={strike} />
+              );
+            })}
         </TableBody>
       </Table>
     </Paper>
@@ -69,6 +74,7 @@ const MeteoriteTable = (props) => {
 
 MeteoriteTable.propTypes = {
   meteoriteStrikes: PropTypes.array.isRequired,
+  searchTerms: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
