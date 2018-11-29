@@ -58,7 +58,7 @@ const MeteoriteTable = (props) => {
         <TableBody>
           {meteoriteStrikes
             .filter(strike => {
-              return searchTerms === '' || 
+              return searchTerms === '' ||
                      (strike.name).toLowerCase().includes(searchTerms.toLowerCase())
             })
             .map(strike => {

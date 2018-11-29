@@ -8,7 +8,7 @@
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/jdmedlock/meteorite/)
 
 
-![Screenshot](https://github.com/jdmedlock/meteorite/blob/development/docs/meteorite_screenshot.png)
+![Screenshot](https://github.com/jdmedlock/meteorite/blob/development/docs/me_screenshot.png)
 
 ## Table of Contents
 
@@ -58,20 +58,16 @@ take effect.
 
 Environment variables maintained in the `.env` file are made available to the
 application code via `process.env.<variable-name>`. For example, the
-neighborhood's latitude is accessed in the code by referencing
-`process.env.REACT_APP_LAT`.
+homepage for the meteorite landings data is accessed in the code by referencing
+`process.env.REACT_APP_METEORITE_LANDING_HOMEPAGE`.
 
 Remember that even though this keeps secure tokens like client id's and secrets
 out of application code it does not make them secure.
 
 | Environment Variable    | Description | Example Setting |
 |:------------------------|:------------|:----------------|
-| REACT_APP_LAT           | Latitude of the neighborhood | REACT_APP_LAT=28.4812299 |
-| REACT_APP_LNG           | Longitude of the neighborhood | REACT_APP_LNG=-80.8883962 |
-| REACT_APP_MAPS_URL      | Google Maps URL with API key | REACT_APP_MAPS_URL="https://maps.googleapis.com/maps/api/js?libraries=places&key=\<YOUR-API-KEY\>" |
-| REACT_APP_SEARCH_RADIUS | Radius, in meters, searches are constrained to | REACT_APP_SEARCH_RADIUS=16000 |
-| REACT_APP_FS_CLIENT_ID  | Foursquare API client id | REACT_APP_FS_CLIENT_ID=ADADEAFDF4ADFADFAA5ADADFAFAD |
-| REACT_APP_FS_CLIENT_SECRET | Foursquaer API client secret | REACT_APP_FS_CLIENT_SECRET=ADADEAFDF4ADFADFAA5ADADFAFAD |
+| REACT_APP_METEORITE_LANDING_HOMEPAGE | Nasa Meteorite Landing homepage | N/a |
+| REACT_APP_METEORITE_STRIKE_DATASET | URL for JSON dataset | N/a
 
 ## Dependencies
 
@@ -81,21 +77,14 @@ This app has the following dependencies
 
 | Module/Library | Environment | Description | Related Files |
 |:---------------|:------------|:------------|:--------------|
-| autoprefixer   | Development | Parses CSS and adds vendor prefixes to CSS rules | N/a |
-| css-loader     | Development | Resolves CSS @import and url() paths | N/a |
-| extract-loader | Development | Extracts the CSS into a .css file | N/a |
-| file-loader    | Development | Serves the .css file as a public URL | N/a |
+| @material-ui/core | Development | Material Design React components | N/a |
+| @material-ui/icons | Development | Material Design React components | N/a |
+| gh-pages | Runtiime | Publish to GitHub Pages | N/a |
 | lodash.debounce | Runtime    | _debounce text input | N/a  |
-| node-sass-chokidar | Development | CSS complier | N/a |
-| npm-run-all    | Runtime     | Run multiple scripts | N/a |
-| postcss-loader | Deveopment  | Loader for Webpack used in conjunction with autoprefixer | N/a |
 | prop-types     | Runtime     | Type checking for props | N/a |
 | react          | Runtime     | UI Library  | N/a           |
 | react-dom      | Runtime     | DOM renderer for React | N/a |
-| react-router   | Runtime     | Declarative routing for React | N/a |
 | react-scripts  | Runtime     | scripts and configuration used by Create React App | N/a |
-| rmwc           | Runtime     | [React Material Web Components](https://jamesmfriedman.github.io/rmwc//) | N/a |
-| sass-loader    | Development | Loads a Sass file and compiles it to CSS | N/a |
 
 In addition to these libraries, which the app explicitly depends on,
 Create React App includes other libraries such as Babel and Webpack. For more
@@ -104,17 +93,16 @@ information about Create React App and it's dependencies consult its
 
 ### External Dependencies
 
-In addition to libraries Neighborhood Maps also depends on webservices to
-provide with details about places. The [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
-used for basic
-searching and to populate information windows on the map with basic information.
+In addition to libraries Meteorite Explorer also depends on webservices to
+provide with details about places. The [Meteorite Landing dataset](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh)
+site contains the detailed data about meteorite landings required by this app.
 
 ## Application Structure
 
-The component structure of the neighborhoodmap application is shown in the following
-diagram.
+The component structure of the Meteorite Explorer application is shown in the
+following diagram.
 
-![neighborhoodmap Component Structure](https://github.com/jdmedlock/neighborhoodmap/blob/development/docs/meteorite_component_structure.png)
+![React Component Structure](https://github.com/jdmedlock/meteorite/blob/development/docs/me_component_structure.png)
 
 ## Frequently Asked Questions
 
