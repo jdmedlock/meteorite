@@ -76,6 +76,9 @@ This app has the following dependencies
 
 | Module/Library | Environment | Description | Related Files |
 |:---------------|:------------|:------------|:--------------|
+| @material-ui/core | Development | Material Design React components | N/a |
+| @material-ui/icons | Development | Material Design React components | N/a |
+| gh-pages | Runtiime | Publish to GitHub Pages | N/a |
 | lodash.debounce | Runtime    | _debounce text input | N/a  |
 | prop-types     | Runtime     | Type checking for props | N/a |
 | react          | Runtime     | UI Library  | N/a           |
