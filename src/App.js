@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
+    const response = await fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET);
     const json = await response.json();
     this.setState({ meteoriteStrikes: json });
     this.setState({ isDataLoaded: true});
@@ -45,8 +45,8 @@ class App extends Component {
         <section className="App-results">
           <div>
             {this.state.isDataLoaded ?
-              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } 
-                  searchTerms={ this.state.searchTerms } /> ) 
+              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes }
+                  searchTerms={ this.state.searchTerms } /> )
               : (' ')
             }
           </div>
@@ -54,7 +54,7 @@ class App extends Component {
 
         <footer className="App-footer">
           <BottomBar title="Data courtesy Nasa Open Data Portal"
-            href="https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh" />
+            href={ process.env.REACT_APP_METEORITE_LANDING_HOMEPAGE } />
         </footer>
       </div>
     );
