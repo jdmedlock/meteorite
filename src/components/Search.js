@@ -8,21 +8,45 @@ const styles = theme => ({
   container: {
     display: 'flex',
     backgroundColor: theme.palette.common.white,
+    margin: "1rem",
   },
 });
 
-const Search = (props) => {
-  const { classes } = props;
-  return (
-    <div className={classes.input}>
-      <SearchTerms />
-      <SearchButton />
-    </div>
-  );
-}
+class Search extends React.Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+    publishSearchTerms: PropTypes.func.isRequired,
+  };
 
-Search.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchTerms: '',
+    };
+
+    this.classes = props.classes;
+    this.publishSearchTerms = props.publishSearchTerms;
+    this.clickHandler = this.clickHandler.bind(this);
+    this.saveSearchTerms = this.saveSearchTerms.bind(this);
+  }
+
+  saveSearchTerms(searchTerms) {
+    this.setState({ searchTerms: searchTerms });
+  }
+
+  clickHandler() {
+    this.publishSearchTerms(this.state.searchTerms);
+  }
+
+  render() {
+    return (
+      <div className={this.classes.container} >
+        <SearchTerms saveSearchTerms={this.saveSearchTerms} />
+        <SearchButton clickHandler={this.clickHandler} />
+      </div>
+    );
+   }
+}
 
 export default withStyles(styles)(Search);

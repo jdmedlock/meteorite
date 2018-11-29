@@ -24,7 +24,7 @@ const BottomBar = (props) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" color="inherit" className={classes.grow}>
+        <Typography variant="subtitle1" color="inherit" className={classes.grow}>
           <a href={href} target="_blank" rel="noopener noreferrer">
             {title}
           </a>

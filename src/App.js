@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import './App.css';
 import TopBar from './components/TopBar';
@@ -11,11 +10,13 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    // App state
     this.state = {
       meteoriteStrikes: {},
-      isDataLoaded: false
+      isDataLoaded: false,
+      searchTerms: '',
     };
+
+    this.publishSearchTerms = this.publishSearchTerms.bind(this);
   }
 
   async componentDidMount() {
@@ -23,7 +24,11 @@ class App extends Component {
     const json = await response.json();
     this.setState({ meteoriteStrikes: json });
     this.setState({ isDataLoaded: true});
-    console.log('meteoriteStrikes json: ', this.state.meteoriteStrikes);
+    console.log('App.js - componentDidMount - meteoriteStrikes json: ', this.state.meteoriteStrikes);
+  }
+
+  publishSearchTerms(searchTerms) {
+    this.setState({ searchTerms: searchTerms });
   }
 
   render() {
@@ -34,18 +39,17 @@ class App extends Component {
         </header>
 
         <section className="App-search">
-          <Search />
+          <Search publishSearchTerms={this.publishSearchTerms} />
         </section>
 
         <section className="App-results">
-          <BrowserRouter basename={ process.env.PUBLIC_URL }>
-            <div>
-              {this.state.isDataLoaded ?
-                ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } /> )
-                : (' ')
-              }
-            </div>
-          </BrowserRouter>
+          <div>
+            {this.state.isDataLoaded ?
+              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes } 
+                  searchTerms={ this.state.searchTerms } /> ) 
+              : (' ')
+            }
+          </div>
         </section>
 
         <footer className="App-footer">
