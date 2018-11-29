@@ -95,10 +95,10 @@ site contains the detailed data about meteorite landings required by this app.
 
 ## Application Structure
 
-The component structure of the neighborhoodmap application is shown in the following
-diagram.
+The component structure of the Meteorite Explorer application is shown in the
+following diagram.
 
-![neighborhoodmap Component Structure](https://github.com/jdmedlock/neighborhoodmap/blob/development/docs/me_component_structure.png)
+![React Component Structure](https://github.com/jdmedlock/meteorite/blob/development/docs/me_component_structure.png)
 
 ## Frequently Asked Questions
 
