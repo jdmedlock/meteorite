@@ -31,7 +31,13 @@ Open Data Portal.
 
 ### UI Features
 
-TBD
+Meteorite landings are displayed in alphabetical order of the name of the
+landing location. Users may scroll through the list of landings, or use the
+search box to search for a names that include the entered search term. Searches
+are case independent.
+
+The results list can be reset to it's original contents by clearing the search
+box and clicking the 'Search' button.
 
 ### Starting & Building the App
 
