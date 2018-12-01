@@ -28,11 +28,31 @@ This app provides its users with the ability to explore meteorite strikes
 across the globe by searching the [Meteorite Landing dataset](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh) on the Nasa
 Open Data Portal.
 
+This application was built to support the Medium article ["How to use Profiling
+& Baselining to Boost Performance & Reliability"](https://medium.com/@jdmedlock/how-to-use-profiling-baselining-to-boost-performance-reliability-b5afd64e34d4).
+As such, it has been important to preserve the state of the application at
+each point in its evolution. The following branches are key to achieving this
+goal.
+
+- `master` - Same as `feature/01-initial-app`
+- `development` - Same as `feature/01-initial-app`
+- `gh-pages` - The host used for testing. At any step in the development and
+performance tuning cycle changes made to any branch can be deployed here for
+testing and measurement.
+- `feature/01-initial-app` - The initial untunded application.
+
+
 ## Usage
 
 ### UI Features
 
-TBD
+Meteorite landings are displayed in alphabetical order of the name of the
+landing location. Users may scroll through the list of landings, or use the
+search box to search for a names that include the entered search term. Searches
+are case independent.
+
+The results list can be reset to it's original contents by clearing the search
+box and clicking the 'Search' button.
 
 ### Starting & Building the App
 
