@@ -38,7 +38,11 @@ goal.
 - `gh-pages` - The host used for testing. At any step in the development and
 performance tuning cycle changes made to any branch can be deployed here for
 testing and measurement.
-- `feature/01-initial-app` - The initial untunded application.
+- `feature/01-initial-app` - The initial untuned application.
+- `feature/02-service-worker` - Addition of a service worker for offline caching
+- `feature/03-pagination` - Addition of pagination to the Meteorite Landing table
+- `feature/04-debounce` - Reduction of the wait time in the call to Lodash `debounce`
+
 
 
 ## Usage

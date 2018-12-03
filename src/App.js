@@ -19,12 +19,17 @@ class App extends Component {
     this.publishSearchTerms = this.publishSearchTerms.bind(this);
   }
 
-  async componentDidMount() {
-    const response = await fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET);
-    const json = await response.json();
-    this.setState({ meteoriteStrikes: json });
-    this.setState({ isDataLoaded: true});
-    console.log('App.js - componentDidMount - meteoriteStrikes json: ', this.state.meteoriteStrikes);
+  componentDidMount() {
+    // const response = await fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET);
+    // const json = await response.json();
+    fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET)
+    .then((response) => {
+      return response.json();
+    })
+    .then((strikesJSON) => {
+      this.setState({ meteoriteStrikes: strikesJSON });
+      this.setState({ isDataLoaded: true});
+    });
   }
 
   publishSearchTerms(searchTerms) {
