@@ -92,11 +92,11 @@ class  MeteoriteTable extends React.Component {
             </TableHead>
             <TableBody>
               {meteoriteStrikes
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .filter(strike => {
                   return searchTerms === '' ||
                         (strike.name).toLowerCase().includes(searchTerms.toLowerCase())
                 })
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(strike => {
                   return (
                     <Meteorite className={classes.row} key={strike.id} strike={strike} />
