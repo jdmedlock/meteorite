@@ -31,7 +31,7 @@ class Search extends React.Component {
 
     // Bind 'this' to the event handlers so they'll have the proper context
     this.handleChange = this.handleChange.bind(this);
-    this.emitChangeDebounce = debounce(this.queryName, 150);
+    this.emitChangeDebounce = debounce(this.queryName, 75);
 
     this.classes = props.classes;
     this.saveSearchTerms = props.saveSearchTerms;
