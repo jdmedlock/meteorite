@@ -33,8 +33,8 @@ As such, it has been important to preserve the state of the application at
 each point in its evolution. The following branches are key to achieving this
 goal.
 
-- `master` - Same as `feature/01-initial-app`
-- `development` - Same as `feature/01-initial-app`
+- `master` - Same as `feature/05-cache-control`
+- `development` - Same as `feature/05-cache-control`
 - `gh-pages` - The host used for testing. At any step in the development and
 performance tuning cycle changes made to any branch can be deployed here for
 testing and measurement.
@@ -42,7 +42,7 @@ testing and measurement.
 - `feature/02-service-worker` - Addition of a service worker for offline caching
 - `feature/03-pagination` - Addition of pagination to the Meteorite Landing table
 - `feature/04-debounce` - Reduction of the wait time in the call to Lodash `debounce`
-
+- `feature/05-cache-control` - Correct cache control policy and request chain diagnostics in Devtools Performance Audit
 
 
 ## Usage
@@ -69,7 +69,7 @@ new browser tab with the url `localhost:5000`. The main difference between
 production and development modes is a Service Worker runs in productin mode to
 support offline execution.
 
-The production version of the app is build by running `npm run publish`.
+The production version of the app on GitHub Pages is built by running `npm run publish`.
 
 ### Environment Variables
 
