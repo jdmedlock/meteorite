@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/meteorite/precache-manifest.7cdaef89471ab343e9b8206649bbbfce.js"
+  "/meteorite/precache-manifest.33a23258e376da401201fbdde09c951c.js"
 );
 
 workbox.clientsClaim();
