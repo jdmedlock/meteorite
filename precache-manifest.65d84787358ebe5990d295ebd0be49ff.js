@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/meteorite/static/css/main.e9d798d0.chunk.css"
   },
   {
-    "revision": "107cddf98167c13770a8b3947f24334b",
+    "revision": "4dec2ff86c0b92c41cd83c18f77b5595",
     "url": "/meteorite/index.html"
   }
 ];
