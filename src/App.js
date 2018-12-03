@@ -20,8 +20,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const response = await fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET);
-    // const json = await response.json();
     fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET)
     .then((response) => {
       return response.json();
