@@ -28,7 +28,7 @@ across the globe by searching the [Meteorite Landing dataset](https://data.nasa.
 Open Data Portal.
 
 This application was built to support the Medium article ["How to use Profiling
-& Baselining to Boost Performance & Reliability"](https://medium.com/@jdmedlock/how-to-use-profiling-baselining-to-boost-performance-reliability-b5afd64e34d4).
+& Baselining to Boost Performance & Reliability"](https://medium.com/chingu/get-blinded-by-science-and-boost-application-performance-b5afd64e34d4).
 As such, it has been important to preserve the state of the application at
 each point in its evolution. The following branches are key to achieving this
 goal.
