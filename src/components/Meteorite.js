@@ -35,7 +35,6 @@ const Meteorite = (props) => {
   const mass = Number.parseFloat(strike.mass).toFixed(0);
   // Extract the year from the ISO8601 formatted strike.year
   const impactYear = (strike.year) != null ? strike.year.split('-')[0] : "undefined";
-
   return (
     <TableRow className={classes.row} key={strike.id}>
       <CustomTableCell component="th" scope="row">{strike.name}</CustomTableCell>

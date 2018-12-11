@@ -40,6 +40,7 @@ class Search extends React.Component {
   }
 
   render() {
+    throw new Error('Phoney error');
     return (
       <div className={this.classes.container} >
         <SearchTerms saveSearchTerms={this.saveSearchTerms} />

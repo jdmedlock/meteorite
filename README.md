@@ -43,6 +43,7 @@ testing and measurement.
 - `feature/03-pagination` - Addition of pagination to the Meteorite Landing table
 - `feature/04-debounce` - Reduction of the wait time in the call to Lodash `debounce`
 - `feature/05-cache-control` - Correct cache control policy and request chain diagnostics in Devtools Performance Audit
+- `feature/06-error-handling` - Add an error detection and handling strategy, plus automated issue ticket creation
 
 
 ## Usage

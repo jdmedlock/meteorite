@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import GlobalErrorBoundary from './components/GlobalErrorBoundary';
 import TopBar from './components/TopBar';
 import Search from './components/Search';
 import MeteoriteTable from './components/MeteoriteTable';
@@ -37,28 +38,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <TopBar title="Meteorite Explorer"/>
-        </header>
+        <GlobalErrorBoundary>
+          <header className="App-header">
+            <TopBar title="Meteorite Explorer"/>
+          </header>
 
-        <section className="App-search">
-          <Search publishSearchTerms={this.publishSearchTerms} />
-        </section>
+          <section className="App-search">
+            <Search publishSearchTerms={this.publishSearchTerms} />
+          </section>
 
-        <section className="App-results">
-          <div>
-            {this.state.isDataLoaded ?
-              ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes }
-                  searchTerms={ this.state.searchTerms } /> )
-              : (' ')
-            }
-          </div>
-        </section>
+          <section className="App-results">
+            <div>
+              {this.state.isDataLoaded ?
+                ( <MeteoriteTable meteoriteStrikes={ this.state.meteoriteStrikes }
+                    searchTerms={ this.state.searchTerms } /> )
+                : (' ')
+              }
+            </div>
+          </section>
 
-        <footer className="App-footer">
-          <BottomBar title="Data courtesy Nasa Open Data Portal"
-            href={ process.env.REACT_APP_METEORITE_LANDING_HOMEPAGE } />
-        </footer>
+          <footer className="App-footer">
+            <BottomBar title="Data courtesy Nasa Open Data Portal"
+              href={ process.env.REACT_APP_METEORITE_LANDING_HOMEPAGE } />
+          </footer>
+          </GlobalErrorBoundary>
       </div>
     );
   }
