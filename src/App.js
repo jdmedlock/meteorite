@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div className="App">
         <GlobalErrorBoundary>
-        <MuiThemeProvider theme={theme}>
+          <MuiThemeProvider theme={theme}>
             <header className="App-header">
               <TopBar title="Meteorite Explorer"/>
             </header>

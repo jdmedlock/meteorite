@@ -1,6 +1,6 @@
 import React from 'react';
 
-class GlobalErrorBoundary extends React.Component {
+class SearchErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -11,15 +11,14 @@ class GlobalErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    console.log('info: ', info);
-    console.log('error: ', error);
+    
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <div>
-          <h1>Meteorite Explorer encountered an error! Oh My!</h1>
+          <h1>You searched for a vulgar word! "{this.props.searchTerms}" is prohibited</h1>
         </div>
       );
     }
@@ -28,4 +27,4 @@ class GlobalErrorBoundary extends React.Component {
   }
 }
 
-export default GlobalErrorBoundary;
+export default SearchErrorBoundary;

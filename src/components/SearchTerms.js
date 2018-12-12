@@ -5,13 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 
 const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
   input: {
     backgroundColor: theme.palette.common.white,
-    margin: theme.spacing.unit,  },
+    margin: theme.spacing.unit,
+  },
 });
 
 class Search extends React.Component {
@@ -53,8 +50,8 @@ class Search extends React.Component {
     return (
       <Input
         placeholder="Enter search terms"
-        className={this.classes.input}
-        variant="outlined"
+        className={ this.classes.input }
+        style={{ 'backgroundColor': 'white' }}
         onChange={ this.handleChange }
         inputProps={{
           'aria-label': 'Description',

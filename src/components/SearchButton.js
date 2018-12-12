@@ -9,9 +9,6 @@ const styles = theme => ({
     fontWeight: 600,
     margin: theme.spacing.unit,
   },
-  input: {
-    display: 'none',
-  },
 });
 
 const SearchButton = (props) => {

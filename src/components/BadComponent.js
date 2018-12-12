@@ -1,6 +1,6 @@
 
 const BadComponent = (props) => {
-  throw new Error('Phoney error');
+  throw new Error('Error');
 }
 
 
