@@ -12,7 +12,6 @@ class GlobalErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    // You can also log the error to an error reporting service
     console.error(error, info);
   }
 
@@ -20,7 +19,9 @@ class GlobalErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <h1>Something went wrong.</h1>
+        <div>
+          <h1>Something went wrong.</h1>
+        </div>
       );
     }
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import SearchTerms from './SearchTerms';
 import SearchButton from './SearchButton';
+import BadComponent from './BadComponent';
 
 const styles = theme => ({
   container: {
@@ -40,9 +41,9 @@ class Search extends React.Component {
   }
 
   render() {
-    throw new Error('Phoney error');
     return (
       <div className={this.classes.container} >
+        <BadComponent />
         <SearchTerms saveSearchTerms={this.saveSearchTerms} />
         <SearchButton clickHandler={this.clickHandler} />
       </div>
