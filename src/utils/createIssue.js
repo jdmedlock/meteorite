@@ -4,8 +4,7 @@ import { formatGHIssue } from './formatGHIssue';
 const createIssue = async (title, info, error) => {
   const opts = formatGHIssue(title, info, error);
   let issueIsCreated = new Promise((resolve, reject) => {
-    createGHIssue( 'jdmedlock/meteorite', title, opts, ( error, issue, info ) => {
-      // Display rate limit information...
+    createGHIssue( process.env.REACT_APP_GITHUB_REPO, title, opts, ( error, issue, info ) => {
       if ( info && process.env.NODE_ENV === 'development') {
           console.error( 'Limit: %d', info.limit );
           console.error( 'Remaining: %d', info.remaining );
