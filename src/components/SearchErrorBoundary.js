@@ -19,7 +19,7 @@ class SearchErrorBoundary extends React.Component {
       console.log(info);
     }
     try {
-      const issueResults = await createIssue('Search error', info, error);
+      const issueResults = await createIssue(`Error encountered searching for "${this.props.searchTerms}"`, info, error);
       this.setState({ issueTicketJSON: issueResults });
     }
     catch(error) {
