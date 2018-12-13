@@ -1,4 +1,5 @@
 import React from 'react';
+import { createIssue } from '../utils/createIssue';
 
 class SearchErrorBoundary extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class SearchErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    
+    console.log(createIssue('Search error', 'Test bug report generation'));
   }
 
   render() {
