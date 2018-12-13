@@ -1,12 +1,8 @@
 import createGHIssue from 'github-create-issue';
+import { formatGHIssue } from './formatGHIssue';
 
-const createIssue = async (title, body) => {
-  const opts = {
-    'token': process.env.REACT_APP_GITHUB_ACCESS_TOKEN,
-    'body': body,
-    'labels': ['bug'],
-  };
-
+const createIssue = async (title, info, error) => {
+  const opts = formatGHIssue(title, info, error);
   let issueIsCreated = new Promise((resolve, reject) => {
     createGHIssue( 'jdmedlock/meteorite', title, opts, ( error, issue, info ) => {
       // Display rate limit information...

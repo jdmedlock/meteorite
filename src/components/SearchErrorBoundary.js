@@ -19,7 +19,7 @@ class SearchErrorBoundary extends React.Component {
       console.log(info);
     }
     try {
-      const issueResults = await createIssue('Search error', 'Test bug report generation');
+      const issueResults = await createIssue('Search error', info, error);
       this.setState({ issueTicketJSON: issueResults });
     }
     catch(error) {
@@ -34,11 +34,11 @@ class SearchErrorBoundary extends React.Component {
         <div>
           <h3>You searched for a vulgar word! "{ this.props.searchTerms }" is prohibited.</h3>
           <h5>
-            An issue has been automatically created for this error on 
+            An issue has been automatically created for this error on
             <a 
               href={ this.state.issueTicketJSON ? this.state.issueTicketJSON.html_url : ' ' }
               target="_blank" rel="noopener noreferrer">
-              &nbsp;GitHub
+              GitHub
             </a>
           </h5>
         </div>
