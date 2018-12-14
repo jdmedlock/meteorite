@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import SearchTerms from './SearchTerms';
-import SearchButton from './SearchButton';
+import Button from './Button';
 import BadComponent from './BadComponent';
 import SearchErrorBoundary from './SearchErrorBoundary';
 
@@ -29,11 +29,16 @@ class Search extends React.Component {
     this.classes = props.classes;
     this.publishSearchTerms = props.publishSearchTerms;
     this.clickHandler = this.clickHandler.bind(this);
+    this.resetSearchTerms = this.resetSearchTerms.bind(this);
     this.saveSearchTerms = this.saveSearchTerms.bind(this);
   }
 
   saveSearchTerms(searchTerms) {
     this.setState({ searchTerms: searchTerms });
+  }
+
+  resetSearchTerms() {
+    this.setState({ searchTerms: '' });
   }
 
   clickHandler() {
@@ -50,10 +55,11 @@ class Search extends React.Component {
   render() {
     return (
       <div className={this.classes.container} >
-        <SearchErrorBoundary searchTerms={ this.state.searchTerms }>
+        <SearchErrorBoundary searchTerms={ this.state.searchTerms }
+            resetSearchTerms={ this.resetSearchTerms }>
           { this.isVulgar(this.state.searchTerms) ? <BadComponent /> : null }
           <SearchTerms saveSearchTerms={this.saveSearchTerms} />
-          <SearchButton clickHandler={this.clickHandler} />
+          <Button name="Search" clickHandler={this.clickHandler} />
         </SearchErrorBoundary>
       </div>
     );

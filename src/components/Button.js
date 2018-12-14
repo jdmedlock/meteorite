@@ -12,16 +12,17 @@ const styles = theme => ({
 });
 
 const SearchButton = (props) => {
-  const { classes, clickHandler } = props;
+  const { classes, name, clickHandler } = props;
   return (
     <Button variant="contained" className={classes.button} onClick={clickHandler} >
-      Search
+      {name}
     </Button>
   );
 }
 
 SearchButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
 };
 

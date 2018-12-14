@@ -1,13 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createIssue } from '../utils/createIssue';
+import Button from './Button';
 
 class SearchErrorBoundary extends React.Component {
+
+  static propTypes = {
+    searchTerms: PropTypes.string.isRequired,
+    resetSearchTerms: PropTypes.func.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = { 
       hasError: false,
       issueTicketJSON: null,
     };
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   static getDerivedStateFromError(error) {
@@ -28,6 +37,11 @@ class SearchErrorBoundary extends React.Component {
     }
   }
 
+  clickHandler() {
+    this.props.resetSearchTerms();
+    this.setState({ hasError: false });
+  }
+
   render() {
     if (this.state.hasError) {
       return (
@@ -41,6 +55,7 @@ class SearchErrorBoundary extends React.Component {
               GitHub
             </a>
           </h5>
+          <Button name="Dismiss" clickHandler={this.clickHandler} />
         </div>
       );
     }
