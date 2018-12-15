@@ -37,7 +37,7 @@ class App extends Component {
     this.setState({ searchTerms: searchTerms });
   }
 
-  render= () => {
+  render = () => {
     const theme = createMuiTheme({
       typography: {
         useNextVariants: true
