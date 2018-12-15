@@ -19,10 +19,10 @@ class App extends Component {
       searchTerms: '',
     };
 
-    this.publishSearchTerms = this.publishSearchTerms.bind(this);
+    //this.publishSearchTerms = this.publishSearchTerms.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch(process.env.REACT_APP_METEORITE_STRIKE_DATASET)
     .then((response) => {
       return response.json();
@@ -33,11 +33,11 @@ class App extends Component {
     });
   }
 
-  publishSearchTerms(searchTerms) {
+  publishSearchTerms = (searchTerms) => {
     this.setState({ searchTerms: searchTerms });
   }
 
-  render() {
+  render= () => {
     const theme = createMuiTheme({
       typography: {
         useNextVariants: true

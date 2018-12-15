@@ -27,26 +27,25 @@ class Search extends React.Component {
     };
 
     // Bind 'this' to the event handlers so they'll have the proper context
-    this.handleChange = this.handleChange.bind(this);
     this.emitChangeDebounce = debounce(this.queryName, 75);
 
     this.classes = props.classes;
     this.saveSearchTerms = props.saveSearchTerms;
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     // Add input entered by the user to the searchText element in
     // our state. Keystrokes are debounced to prevend the queryLocation function
     // from being called too many times in succession to reduce overhead.
     this.emitChangeDebounce(event.target.value);
   }
 
-  queryName(enteredText) {
+  queryName = (enteredText) => {
     this.setState({ searchTerms: enteredText });
     this.saveSearchTerms(enteredText);
   }
 
-  render() {
+  render = () => {
     return (
       <Input
         placeholder="Enter search terms"

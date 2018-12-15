@@ -56,20 +56,17 @@ class  MeteoriteTable extends React.Component {
     this.classes = props.classes;
     this.meteoriteStrikes = props.meteoriteStrikes;
     this.searchTerms  = props.SearchTerms;
-
-    this.handleChangePage = this.handleChangePage.bind(this);
-    this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
   }
 
-  handleChangePage(event, page) {
+  handleChangePage = (event, page) => {
     this.setState({ page });
   }
 
-  handleChangeRowsPerPage(event) {
+  handleChangeRowsPerPage = (event) => {
     this.setState({ rowsPerPage: event.target.value });
   }
 
-  render() {
+  render = () => {
     const { classes, meteoriteStrikes, searchTerms } = this.props;
     const { rowsPerPage, page } = this.state;
 

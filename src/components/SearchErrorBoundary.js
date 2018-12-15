@@ -16,7 +16,6 @@ class SearchErrorBoundary extends React.Component {
       hasError: false,
       issueTicketJSON: null,
     };
-    this.clickHandler = this.clickHandler.bind(this);
   }
 
   static getDerivedStateFromError(error) {
@@ -28,7 +27,8 @@ class SearchErrorBoundary extends React.Component {
       console.log(info);
     }
     try {
-      const issueResults = await createIssue(`Error encountered searching for "${this.props.searchTerms}"`, info, error);
+      const issueResults = await createIssue(
+        `Error encountered searching for "${this.props.searchTerms}"`, info, error);
       this.setState({ issueTicketJSON: issueResults });
     }
     catch(error) {
@@ -37,16 +37,18 @@ class SearchErrorBoundary extends React.Component {
     }
   }
 
-  clickHandler() {
+  clickHandler = () => {
     this.props.resetSearchTerms();
     this.setState({ hasError: false });
   }
 
-  render() {
+  render = () => {
     if (this.state.hasError) {
       return (
         <div>
-          <h3>You searched for a vulgar word! "{ this.props.searchTerms }" is prohibited.</h3>
+          <h3>
+            You searched for a vulgar word! "{ this.props.searchTerms }" is prohibited.
+          </h3>
           <h5>
             An issue has been automatically created for this error on
             <a 

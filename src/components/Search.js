@@ -28,31 +28,28 @@ class Search extends React.Component {
 
     this.classes = props.classes;
     this.publishSearchTerms = props.publishSearchTerms;
-    this.clickHandler = this.clickHandler.bind(this);
-    this.resetSearchTerms = this.resetSearchTerms.bind(this);
-    this.saveSearchTerms = this.saveSearchTerms.bind(this);
   }
 
-  saveSearchTerms(searchTerms) {
+  saveSearchTerms = (searchTerms) => {
     this.setState({ searchTerms: searchTerms });
   }
 
-  resetSearchTerms() {
+  resetSearchTerms = () => {
     this.setState({ searchTerms: '' });
   }
 
-  clickHandler() {
+  clickHandler = () => {
     this.publishSearchTerms(this.state.searchTerms);
   }
 
-  isVulgar(phrase) {
+  isVulgar= (phrase) => {
     const vulgarWords = ['darn', 'shucks', 'fudge'];
     return phrase.split(' ').reduce((result, word) => {
       return (result || vulgarWords.includes(word));
     }, false);
   }
 
-  render() {
+  render = () => {
     return (
       <div className={this.classes.container} >
         <SearchErrorBoundary searchTerms={ this.state.searchTerms }

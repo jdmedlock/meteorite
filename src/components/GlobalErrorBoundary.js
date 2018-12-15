@@ -6,16 +6,16 @@ class GlobalErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError = (error) => {
     return { hasError: true };
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch = (error, info) => {
     console.log('info: ', info);
     console.log('error: ', error);
   }
 
-  render() {
+  render = () => {
     if (this.state.hasError) {
       return (
         <div>
