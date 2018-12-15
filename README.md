@@ -27,8 +27,11 @@ This app provides its users with the ability to explore meteorite strikes
 across the globe by searching the [Meteorite Landing dataset](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh) on the Nasa
 Open Data Portal.
 
-This application was built to support the Medium article ["How to use Profiling
-& Baselining to Boost Performance & Reliability"](https://medium.com/chingu/get-blinded-by-science-and-boost-application-performance-b5afd64e34d4).
+This application was built to support the following Medium articles:
+- ["How to use Profiling
+& Baselining to Boost Performance & Reliability"](https://medium.com/chingu/get-blinded-by-science-and-boost-application-performance-b5afd64e34d4)
+- ["Exploit React Error Boundaries to Improve UX"](https://medium.com/chingu/exploit-react-error-boundaries-to-improve-ux-8e1b18faa5ab)
+
 As such, it has been important to preserve the state of the application at
 each point in its evolution. The following branches are key to achieving this
 goal.
@@ -44,6 +47,7 @@ testing and measurement.
 - `feature/04-debounce` - Reduction of the wait time in the call to Lodash `debounce`
 - `feature/05-cache-control` - Correct cache control policy and request chain diagnostics in Devtools Performance Audit
 - `feature/06-error-handling` - Add an error detection and handling strategy, plus automated issue ticket creation
+- `feature/07-create-issue` - Add automatic Github issue creation
 
 
 ## Usage
@@ -91,7 +95,9 @@ out of application code it does not make them secure.
 | Environment Variable    | Description | Example Setting |
 |:------------------------|:------------|:----------------|
 | REACT_APP_METEORITE_LANDING_HOMEPAGE | Nasa Meteorite Landing homepage | N/a |
-| REACT_APP_METEORITE_STRIKE_DATASET | URL for JSON dataset | N/a
+| REACT_APP_METEORITE_STRIKE_DATASET | URL for JSON dataset | N/a |
+| REACT_APP_GITHUB_REPO | GitHub repo issues will be added to | N/a |
+| REACT_APP_GITHUB_ACCESS_TOKEN | Token for GitHub repo authentication | N/a |
 
 ## Dependencies
 
@@ -104,6 +110,7 @@ This app has the following dependencies
 | @material-ui/core | Development | Material Design React components | N/a |
 | @material-ui/icons | Development | Material Design React components | N/a |
 | gh-pages | Runtiime | Publish to GitHub Pages | N/a |
+| github-create-issue | Runtime | Create GitHub Issues | N/a |
 | lodash.debounce | Runtime    | _debounce text input | N/a  |
 | prop-types     | Runtime     | Type checking for props | N/a |
 | react          | Runtime     | UI Library  | N/a           |
