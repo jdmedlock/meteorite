@@ -52,10 +52,11 @@ class  MeteoriteTable extends React.Component {
       page: 0,
       rowsPerPage: 5,
     };
-
+    /*
     this.classes = props.classes;
     this.meteoriteStrikes = props.meteoriteStrikes;
     this.searchTerms  = props.SearchTerms;
+    */
   }
 
   handleChangePage = (event, page) => {
